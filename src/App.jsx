@@ -1,17 +1,25 @@
-
-import './App.css'
-import Post from './Components/Posts Collection/Post'
-import NewPost from './Components/Posts Collection/New Post/NewPost'
+import "./App.css";
+import Post from "./Components/Posts Collection/Post";
+import ModalStateHandle from "./Components/Modal/ModalStateHandle";
+import MainHeader from "./Components/Header/MainHeader";
+import { useState } from "react";
 
 function App() {
-
+  const [visible, setVisibility] = useState(false);
+  const close = () => {
+    setVisibility(false);
+  };
+  const open = () => {
+    setVisibility(true);
+  };
   return (
     <>
-    <NewPost/>
+      <MainHeader open={open} />
+      <ModalStateHandle close={close} visiblility={visible} />
       <h1>Hello World</h1>
-      <Post/>
+      <Post />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
