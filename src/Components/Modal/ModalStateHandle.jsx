@@ -14,8 +14,8 @@ const ModalStateHandle = (props) => {
       [event.target.name]: event.target.value,
     });
   };
-  const insertDataToArray = () => {
-    arrayOfPosts.push(formData);
+  const add = () => {
+    props.add(formData);
   };
   const cancleBtn = () => {
     setFormData({
@@ -30,9 +30,9 @@ const ModalStateHandle = (props) => {
         <Modal>
           <NewPost
             dataChange={handleDataChange}
-            insert={insertDataToArray}
             cancle={cancleBtn}
             close={props.close}
+            add={add}
           />
         </Modal>
       )}

@@ -3,7 +3,10 @@ import styleFromModal from "../../Modal/Modal.module.css";
 function NewPost(props) {
   return (
     <div className={styleFromModal.backdrop}>
-      <form className={[classes.form]}>
+      <form className={[classes.form]} onSubmit={(event)=>{
+        event.preventDefault();
+        props.close();
+      }}>
         <p>
           <label htmlFor="body">Text</label>
           <textarea
@@ -24,7 +27,7 @@ function NewPost(props) {
             onChange={props.dataChange}
           />
         </p>
-        <button onClick={props.insert}>Insert</button>
+        <button onClick={props.add}>Insert</button>
         <button onClick={props.cancle}>Cancle</button>
         <button onClick={props.close}>Close</button>
 
